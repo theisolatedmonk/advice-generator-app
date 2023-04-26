@@ -28,8 +28,8 @@ export default function Home() {
 
   return (
     <main className="flex h-screen bg-[hsl(218,23%,16%)] justify-center items-center font-Manrope ">
-      <div className="relative flex flex-col gap-4 w-60 bg-[hsl(217,19%,24%)] rounded-md items-center text-center justify-center py-4 px-[10px] sm:w-80 h-64">
-        <p className="text-xs items-start text-[hsl(150,100%,66%)]">ADVICE #{id}</p>
+      <div className="relative flex flex-col gap-4 w-60 bg-[hsl(217,19%,24%)] rounded-lg items-center text-center justify-center py-4 px-[12px] h-56 sm:w-96 md:w-96 lg:w-96">
+     <p className="text-xs items-start text-[hsl(150,100%,66%)]">ADVICE #{id}</p>
         <p className=" flex items-center text-center">{advice}</p>
         <div className="flex ">
           
@@ -39,7 +39,7 @@ export default function Home() {
           " src={divideDesktop} alt="" />
           
         </div>
-        <button onClick={refreshPage} className="mt-60 p-4 rounded-full bg-[hsl(150,100%,66%)]  absolute focus:shadow-md shadow-[hsl(150,100%,66%)]"><Image className="h-4 w-4  " src= {icon} alt="" /></button>
+        <button onClick={refreshPage} className="mt-56 p-4 rounded-full bg-[hsl(150,100%,66%)]  absolute focus:shadow-md shadow-[hsl(150,100%,66%)] flex items-center "><Image className="h-4 w-4  " src= {icon} alt="" /></button>
       </div>
      
     </main>
