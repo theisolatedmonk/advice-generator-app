@@ -22,15 +22,26 @@ export default function Home() {
       .catch((error) => console.log(error));
   }, []);
 
+  const refreshPage = () => {
+    window.location.reload();
+  };
+
   return (
     <main className="flex h-screen bg-[hsl(218,23%,16%)] justify-center items-center font-Manrope ">
-      <div className="relative flex flex-col gap-2 w-60 bg-[hsl(217,19%,38%)] rounded-md items-center text-center py-4 px-[10px] sm:w-80">
-        <p className="text-xs text-[hsl(150,100%,66%)]">ADVICE #{id}</p>
-        <p className="text-lg">{advice}</p>
-        {/* <p className="text-lg">"It is easy to sit up and take notice, what's difficult is getting up and taking action."</p> */}
-        <Image src={divideMobile} alt="" />
+      <div className="relative flex flex-col gap-4 w-60 bg-[hsl(217,19%,24%)] rounded-md items-center text-center justify-center py-4 px-[10px] sm:w-80 h-64">
+        <p className="text-xs items-start text-[hsl(150,100%,66%)]">ADVICE #{id}</p>
+        <p className=" flex items-center text-center">{advice}</p>
+        <div className="flex ">
+          
+          <Image className="flex sm:hidden md:hidden lg:hidden xl:hidden 
+          " src={divideMobile} alt="" />
+          <Image className="sm:flex md:flex lg:flex xl:flex  hidden 
+          " src={divideDesktop} alt="" />
+          
+        </div>
+        <button onClick={refreshPage} className="mt-60 p-4 rounded-full bg-[hsl(150,100%,66%)]  absolute focus:shadow-md shadow-[hsl(150,100%,66%)]"><Image className="h-4 w-4  " src= {icon} alt="" /></button>
       </div>
-      {/* <button className="mt-2 bg-[hsl(150,100%,66%)] w-80 absolute"><Image src= {icon} alt="" /></button> */}
+     
     </main>
   );
 }
