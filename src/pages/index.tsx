@@ -16,9 +16,11 @@ export default function Home() {
   useEffect(() => {
     fetch("https://api.adviceslip.com/advice")
       .then((response) => response.json())
-      .then((data) =>{setAdvice(data.slip.advice);
-        setId(data.slip.id)} )
-       
+      .then((data) => {
+        setAdvice(data.slip.advice);
+        setId(data.slip.id);
+      })
+
       .catch((error) => console.log(error));
   }, []);
 
@@ -28,20 +30,38 @@ export default function Home() {
 
   return (
     <main className="flex h-screen bg-[hsl(218,23%,16%)] justify-center items-center font-Manrope ">
-      <div className="relative flex flex-col gap-4 w-60 bg-[hsl(217,19%,24%)] rounded-lg items-center text-center justify-center py-4 px-[12px] h-56 sm:w-96 md:w-96 lg:w-96">
-     <p className="text-xs items-start text-[hsl(150,100%,66%)]">ADVICE #{id}</p>
+      <div className="relative flex flex-col gap-4 w-60 bg-[hsl(217,19%,24%)] rounded-lg items-center text-center justify-center py-4 px-[12px] sm:w-96 md:w-96 lg:w-96">
+        <p className="text-xs items-start text-[hsl(150,100%,66%)]">
+          ADVICE #{id}
+        </p>
         <p className=" flex items-center text-center">{advice}</p>
-        <div className="flex ">
-          
-          <Image className="flex sm:hidden md:hidden lg:hidden xl:hidden 
-          " src={divideMobile} alt="" />
-          <Image className="sm:flex md:flex lg:flex xl:flex  hidden 
-          " src={divideDesktop} alt="" />
-          
+        <div className="flex mb-3 ">
+          <Image
+            className="flex sm:hidden md:hidden lg:hidden xl:hidden 
+          "
+            src={divideMobile}
+            alt=""
+          />
+          <Image
+            className="sm:flex md:flex lg:flex xl:flex  hidden 
+          "
+            src={divideDesktop}
+            alt=""
+          />
         </div>
-        <button onClick={refreshPage} className="mt-56 p-4 rounded-full bg-[hsl(150,100%,66%)]  absolute focus:shadow-md shadow-[hsl(150,100%,66%)] flex items-center "><Image className="h-4 w-4  " src= {icon} alt="" /></button>
+        <section className="flex justify-center items-center group  ">
+          <div className="absolute bottom-[-20px] group-hover:bg-[hsl(150,100%,66%)] p-1 rounded-full h-12 w-12  
+          transition-all animate-tilt
+          blur opacity-75
+          "></div>
+          <button
+            onClick={refreshPage}
+            className=" absolute bottom-[-20px]  flex items-center justify-center  h-12 w-12 rounded-full bg-[hsl(150,100%,66%)]      "
+          >
+            <Image className="h-4 w-4  " src={icon} alt="" />
+          </button>
+        </section>
       </div>
-     
     </main>
   );
 }
